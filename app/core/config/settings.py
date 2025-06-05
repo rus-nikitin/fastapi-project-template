@@ -17,6 +17,11 @@ class Settings(BaseSettings):
     mongo_dsn: Optional[MongoDsn] = "mongodb://localhost:27017"  # type: ignore
     mongo_db_name: Optional[str] = "racun"
 
+    # JWT Authentication settings
+    jwt_secret_key: str = "for production can generate by: openssl rand -hex 64"
+    jwt_algorithm: str = "HS256"
+    jwt_dev_mode: bool = False  # Skip signature validation in development
+
     # Metrics configuration
     metrics_enabled: bool = True
     metrics_log_slow_requests: bool = True

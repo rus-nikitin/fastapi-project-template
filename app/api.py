@@ -23,3 +23,16 @@ api_router.include_router(
 def healthcheck():
     """Simple healthcheck endpoint."""
     return {"status": "ok"}
+
+
+from core.dependencies import JwtClient, JwtClientDep, AdminJwtClientDep
+@api_router.get("/jwt-client", response_model=JwtClient)
+def jwt_client(jwt_client: JwtClientDep):
+    """Simple jwt endpoint."""
+    return jwt_client
+
+
+@api_router.get("/admin-client", response_model=JwtClient)
+def admin_client(jwt_client: AdminJwtClientDep):
+    """Simple jwt endpoint."""
+    return jwt_client
