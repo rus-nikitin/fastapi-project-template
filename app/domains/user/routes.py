@@ -1,11 +1,10 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException, status
 from typing import List
 
 from core.dependencies import RequestId
 from .schemas import UserResponse, UserCreate, UserUpdate
 from .dependencies import (
     UserServiceDep,
-    UserByIdDep,
     CurrentUserDep,
     CurrentAdminUserDep
 )
@@ -44,10 +43,16 @@ async def get_current_user_profile(
 
 @router.get("/{user_id}", response_model=UserResponse)
 async def get_user(
-    user: UserByIdDep,
-    current_user: CurrentUserDep,  # Authenticated users only
+    user_id: int,
+    user_service: UserServiceDep,
     request_id: RequestId
 ):
+    user = await user_service.get_user_by_id(user_id)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=[{"msg": "A user with this id does not exist."}],
+        )
     return user
 
 

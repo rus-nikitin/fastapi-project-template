@@ -7,6 +7,12 @@ This module contains all user-related business logic, including:
 - User service (business logic)
 - User API routes and schemas
 - User-specific dependencies and exceptions
+
+routes (schemas)   → service → repository (models) → Database
+      ↓               ↓          ↓
+HTTP handling       Business  Data access
+Validation          Logic     Storage
+Serialization       Rules     Queries
 """
 
 from .models import User
