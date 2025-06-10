@@ -1,9 +1,11 @@
 from typing import Optional
 from pydantic import MongoDsn
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8')
+
     # Application settings
     debug: bool = False
     log_full_traceback: bool = False
@@ -38,10 +40,6 @@ class Settings(BaseSettings):
     api_title: str = "FastAPI Template"
     api_version: str = "1.0.0"
     api_description: str = "Production-ready FastAPI template"
-
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
 
 
 settings = Settings()

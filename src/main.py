@@ -5,10 +5,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from starlette.requests import Request
 
-from api import api_router
-from core.config.settings import settings
-from core.middleware import MetricsMiddleware, RequestIdMiddleware, DbMiddlewareFactory
-from infrastructure.database.managers import DbManagerFactory
+from src.api import api_router
+from src.core.config.settings import settings
+from src.core.middleware import MetricsMiddleware, RequestIdMiddleware, DbMiddlewareFactory
+from src.infrastructure.database.managers import DbManagerFactory
 
 
 logging.basicConfig(

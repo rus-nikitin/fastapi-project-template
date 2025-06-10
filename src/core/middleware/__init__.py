@@ -1,6 +1,6 @@
-from .request_id import RequestIdMiddleware
-from .metrics import MetricsMiddleware
-from .database import (
+from src.core.middleware.request_id import RequestIdMiddleware
+from src.core.middleware.metrics import MetricsMiddleware
+from src.core.middleware.database import (
     BaseDbMiddleware,
     SQLAlchemyDbMiddleware,
     MotorDbMiddleware,

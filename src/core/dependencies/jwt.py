@@ -7,7 +7,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from jose import JWTError, jwt
 from pydantic import BaseModel
 
-from core.config.settings import settings
+from src.core.config.settings import settings
 
 logger = logging.getLogger(__name__)
 

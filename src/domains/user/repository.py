@@ -1,8 +1,8 @@
 from abc import abstractmethod
 from typing import Protocol, Optional, List
 
-from .models import User
-from core.dependencies import DbProvider
+from src.domains.user.models import User
+from src.core.dependencies import DbProvider
 
 
 class UserRepository(Protocol):

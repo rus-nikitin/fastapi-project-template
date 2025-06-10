@@ -1,4 +1,4 @@
-from core.exceptions import BaseAPIException, NotFoundError, ConflictError, ValidationError
+from src.core.exceptions import BaseAPIException, NotFoundError, ConflictError, ValidationError
 
 
 class UserNotFoundError(NotFoundError):

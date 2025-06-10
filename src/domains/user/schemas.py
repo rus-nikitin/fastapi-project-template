@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 from typing import Optional
 from datetime import datetime
 
@@ -25,11 +25,11 @@ class UserUpdate(BaseModel):
 
 class UserResponse(UserBase):
     """Schema for user response"""
+    model_config = ConfigDict(
+        from_attributes=True
+    )
     id: int = Field(..., description="User ID")
     is_active: bool = Field(..., description="Whether the user is active")
     is_admin: bool = Field(..., description="Whether the user is an admin")
     created_at: datetime = Field(..., description="User creation timestamp")
     updated_at: Optional[datetime] = Field(None, description="User last update timestamp")
-
-    class Config:
-        from_attributes = True

@@ -1,10 +1,10 @@
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends, HTTPException
 from typing import Annotated
 
-from core.dependencies import DbProvider
-from .repository import UserRepositorySQLAlchemy
-from .service import UserService
-from .models import User
+from src.core.dependencies import DbProvider
+from src.domains.user.repository import UserRepositorySQLAlchemy
+from src.domains.user.service import UserService
+from src.domains.user.models import User
 
 
 def get_user_repository(db_provider: DbProvider) -> UserRepositorySQLAlchemy:

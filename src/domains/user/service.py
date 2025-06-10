@@ -1,8 +1,8 @@
 from typing import List, Optional
 
-from .models import User
-from .repository import UserRepository
-from .schemas import UserCreate, UserUpdate
+from src.domains.user.models import User
+from src.domains.user.repository import UserRepository
+from src.domains.user.schemas import UserCreate, UserUpdate
 
 
 class UserService:

@@ -1,14 +1,13 @@
 from fastapi import APIRouter, HTTPException, status
 from typing import List
 
-from core.dependencies import RequestId
-from .schemas import UserResponse, UserCreate, UserUpdate
-from .dependencies import (
+from src.core.dependencies import RequestId
+from src.domains.user.schemas import UserResponse, UserCreate, UserUpdate
+from src.domains.user.dependencies import (
     UserServiceDep,
     CurrentUserDep,
     CurrentAdminUserDep
 )
-from .models import User
 
 router = APIRouter(
     # prefix="/users",

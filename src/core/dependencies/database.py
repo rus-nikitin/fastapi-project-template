@@ -4,7 +4,7 @@ import logging
 from fastapi import Depends
 from starlette.requests import Request
 
-from infrastructure.database.managers import BaseDbManager
+from src.infrastructure.database.managers import BaseDbManager
 
 if TYPE_CHECKING:
     from sqlalchemy.ext.asyncio import AsyncSession

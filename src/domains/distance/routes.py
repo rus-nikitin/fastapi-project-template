@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-from core.dependencies import RequestId
-from .schemas import Point, DistanceResponse
-from domains.user import CurrentUserDep
+from src.core.dependencies import RequestId
+from src.domains.distance.schemas import Point, DistanceResponse
+from src.core.dependencies import JwtClientDep
 
 
 router = APIRouter()
@@ -12,9 +12,9 @@ router = APIRouter()
 async def calculate_distance(
     point_a: Point,
     point_b: Point,
-    current_user: CurrentUserDep,
+    jwt_client: JwtClientDep,
     request_id: RequestId
 ):
-    # some complex business logic for authenticated users only
+    # some complex business logic for jwt authenticated users only
     distance=((point_a.x-point_b.x)**2+(point_a.y-point_b.y)**2)**0.5
     return DistanceResponse(distance=distance)

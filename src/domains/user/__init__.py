@@ -15,15 +15,15 @@ Validation          Logic     Storage
 Serialization       Rules     Queries
 """
 
-from .models import User
-from .repository import UserRepository, UserRepositorySQLAlchemy
-from .service import UserService
-from .schemas import UserCreate, UserUpdate, UserResponse
-from .routes import router as user_router
-from .dependencies import (
+from src.domains.user.models import User
+from src.domains.user.repository import UserRepository, UserRepositorySQLAlchemy
+from src.domains.user.service import UserService
+from src.domains.user.schemas import UserCreate, UserUpdate, UserResponse
+from src.domains.user.routes import router as user_router
+from src.domains.user.dependencies import (
     CurrentUserDep
 )
-from .exceptions import (
+from src.domains.user.exceptions import (
     UserNotFoundError,
     UserAlreadyExistsError,
     UserValidationError,

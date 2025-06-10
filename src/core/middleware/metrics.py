@@ -6,7 +6,7 @@ from fastapi import HTTPException
 from starlette.requests import Request
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from core.config.settings import settings
+from src.core.config.settings import settings
 
 logger = logging.getLogger(__name__)
 
